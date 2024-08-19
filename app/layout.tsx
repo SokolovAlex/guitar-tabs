@@ -1,10 +1,11 @@
 import { Metadata } from 'next'
 import './globals.css'
 
-// https://basscss.com/
-import 'basscss/css/basscss.min.css'
 import StyledComponentsRegistry from '../lib/registry'
 import { Providers } from '@/components/providers'
+import { Header } from '@/components/header/Header'
+import { clsx } from 'clsx'
+import { philosopher } from '@/components/fonts'
 
 export const metadata: Metadata = {
     description: 'Your page description',
@@ -18,10 +19,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <body className="bg-background text-foreground">
+        <html lang="en" className='light'>
+            <body className={clsx('bg-background', philosopher.className)}>
                 <Providers>
                     <StyledComponentsRegistry>
+                        <Header />
                         {children}
                     </StyledComponentsRegistry>
                 </Providers>

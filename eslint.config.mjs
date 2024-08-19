@@ -23,7 +23,6 @@ export default [
             '@stylistic/ts/quotes': ['error', 'single'],
             '@stylistic/ts/semi': ['error', 'never'],
             'react/react-in-jsx-scope': 'off',
-            'sort-keys': ['error', 'asc', { caseSensitive: true, natural: false }],
         },
     },
 ]

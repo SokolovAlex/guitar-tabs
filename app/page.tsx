@@ -1,44 +1,27 @@
-import { Logo } from '../components/Logo'
-import AuthButton from '../components/AuthButton'
-import { createClient } from '@/utils/supabase/server'
-import ConnectSupabaseSteps from '@/components/tutorial/ConnectSupabaseSteps'
-import SignUpUserSteps from '@/components/tutorial/SignUpUserSteps'
 import { Title } from '@/components/base/title'
-import { LimitedWidth, NavLink, Row } from '@/components/base/base'
+import { TabCard } from '@/components/tab-card/tab-card'
+import { Tab } from '@/types/tab'
+import { createClient } from '@/utils/supabase/server'
 
 export default async function Index() {
-    const canInitSupabaseClient = () => {
-        // This function is just for the interactive tutorial.
-        // Feel free to remove it once you have Supabase connected.
-        try {
-            createClient()
-            return true
-        } catch (err) {
-            console.log('init supabase', err)
-            return false
-        }
+    const client = createClient()
+    const tabs: Tab[] | null = await client
+        .from('tabs')
+        .select('*')
+        .then(x => x.data)
+
+    if (!tabs || !tabs.length) {
+        return null
     }
 
-    const isSupabaseConnected = canInitSupabaseClient()
-
     return (
-        <div className="fit flex flex-column justify-between items-center">
-            <Row className="py1 border-bottom">
-                <LimitedWidth>
-                    <Logo />
-                    {isSupabaseConnected && <AuthButton />}
-                </LimitedWidth>
-            </Row>
-
-            <div className="flex flex-col max-width-4">
-                <main className="flex-1 flex flex-col gap-6">
-                    <Title>Next steps</Title>
-                    {isSupabaseConnected ? (
-                        <SignUpUserSteps />
-                    ) : (
-                        <ConnectSupabaseSteps />
-                    )}
-                </main>
+        <div className="fit flex max-width-4">
+            <div className="p-4 w-1/5">Фильтры</div>
+            <div className="fit flex-1 p-2">
+                <Title>Tabs</Title>
+                <div className="grid grid-cols-2 gap-2">
+                    {tabs?.map(tab => <TabCard key={tab.name} tab={tab} />)}
+                </div>
             </div>
         </div>
     )

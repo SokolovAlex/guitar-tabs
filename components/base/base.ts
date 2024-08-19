@@ -18,15 +18,19 @@ export const LimitedWidth = styled.div`
 `
 
 export const NavLink = styled(Link)`
-    text-decoration: underline;
-    background-color: #cfcfcf;
     padding: 4px;
     border-radius: 4px;
-    transition: background-color 1s ease-out;
+    transition: all 0.8s ease-out;
+    border-color: #0fa915;
+    color: #0fa915;
+    font-weight: 500;
+    border-width: 2px;
+    background-color: transparent;
 
     &:hover {
-        color: #636363;
+        color: white;
         text-decoration: none;
-        background-color: #e9e9e9;
+        background: rgb(15,169,21);
+        background: linear-gradient(90deg, rgba(15,169,21,1) 0%, rgba(17,196,24,1) 55%);
     }
 `
