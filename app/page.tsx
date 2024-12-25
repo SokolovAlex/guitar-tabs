@@ -5,6 +5,7 @@ import { createClient } from '@/utils/supabase/server'
 
 export default async function Index() {
     const client = createClient()
+
     const tabs: Tab[] | null = await client
         .from('tabs')
         .select('*')
@@ -15,12 +16,14 @@ export default async function Index() {
     }
 
     return (
-        <div className="fit flex max-width-4">
-            <div className="p-4 w-1/5">Фильтры</div>
-            <div className="fit flex-1 p-2">
-                <Title>Tabs</Title>
-                <div className="grid grid-cols-2 gap-2">
-                    {tabs?.map(tab => <TabCard key={tab.name} tab={tab} />)}
+        <div className="fit flex justify-center">
+            <div className="fit flex max-w-screen-xl">
+                <div className="p-4 w-1/5">Фильтры</div>
+                <div className="fit flex-1 p-2">
+                    <Title>Tabs</Title>
+                    <div className="grid grid-cols-2 gap-2">
+                        {tabs?.map(tab => <TabCard key={tab.name} tab={tab} />)}
+                    </div>
                 </div>
             </div>
         </div>

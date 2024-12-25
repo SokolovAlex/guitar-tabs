@@ -23,6 +23,7 @@ export default [
             '@stylistic/ts/quotes': ['error', 'single'],
             '@stylistic/ts/semi': ['error', 'never'],
             'react/react-in-jsx-scope': 'off',
+            '@typescript-eslint/no-explicit-any': 'off',
         },
     },
 ]

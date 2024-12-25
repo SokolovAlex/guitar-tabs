@@ -4,6 +4,11 @@
 2) view page + count views
 3) add new + recaptcha
 
+todo
+1) green icon to open
+2) green active nav
+3) add file
+
 nextui
 https://nextui.org/docs/frameworks/nextjs#nextui-cli-recommended
 
@@ -25,3 +30,6 @@ https://www.mediamarkt.de/de/category/netbooks-347.html?utm_source=google&utm_me
 
 inspect eslint config
 npx eslint --inspect-config
+
+alternative ui
+https://baseweb.design/components/file-uploader/  + example (https://github.com/gettoknowdavid/nextjs-with-baseweb/tree/main/pages)
