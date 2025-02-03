@@ -12,8 +12,14 @@ module.exports = function (_, { defaultConfig }) {
     }
     return {
         ...config,
+        env: {
+            Google_API_KEY: process.env.Google_API_KEY,
+            YOUTUBE_URL: process.env.YOUTUBE_URL,
+            YOUTUBE_CHANNEL: process.env.YOUTUBE_CHANNEL,
+        },
         compiler: styledComponentsCompiler,
         experimental: {
+            esmExternals: 'loose',
             swcPlugins: [
                 [
                     '@lingui/swc-plugin', {}

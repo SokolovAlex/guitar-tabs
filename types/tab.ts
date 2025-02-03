@@ -10,6 +10,7 @@ export type Tab = {
     name: string  
     description: string   
     video_link: string
+    video_id: string
     tab_link: string  
     author: number
     performer: string   

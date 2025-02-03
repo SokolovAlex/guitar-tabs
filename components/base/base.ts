@@ -17,6 +17,10 @@ export const LimitedWidth = styled.div`
     align-items: center;
 `
 
+export const LimitedWidthOnly = styled.div`
+    width: ${maxWidth};
+`
+
 export const NavLink = styled(Link)`
     padding: 4px;
     border-radius: 4px;
